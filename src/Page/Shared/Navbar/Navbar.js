@@ -14,18 +14,22 @@ const Navbar = () => {
         { id: "5", name: "Contact Us", path: "" },
         { id: "6", name: "Advertise", path: "" },
     ]
-    
+
     return (
-        <nav className='flex justify-around items-center border-b-2 flex-row-reverse md:flex-row'>
+        <nav className='flex justify-around items-center border-b-2 flex-row-reverse md:flex-row '>
+
+            {/* --Mobile button-- */}
             <div onClick={() => setOpen(!open)} className='ml-5 h-8 w-8 md:hidden'>
                 {
                     open ? <XMarkIcon /> : <Bars3Icon />
                 }
             </div>
 
+            {/* --logo-- */}
             <img className='w-52 h-p-1 md:ml-10 mr-3' src={logo} alt="logo" />
 
-            <ul className={`md:flex justify-center items-center font-bold text-lg absolute md:static md:p-16 pl-5 duration-500 ease-in ${open ? 'top-24' : 'top-[-350px]'}`}>
+            {/* --menu items -- */}
+            <ul className={`md:flex justify-center items-center font-bold text-lg absolute md:static md:p-16 pl-5 duration-500 ease-in ${open ? 'top-24 bg-white' : 'top-[-350px]'} `}>
                 {
                     routes.map(route => <Navlink key={route.id} route={route}></Navlink >)
                 }
@@ -37,3 +41,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
